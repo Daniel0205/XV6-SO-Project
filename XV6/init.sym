@@ -11,14 +11,14 @@
 00000000 .debug_str
 00000000 .debug_loc
 00000000 .debug_ranges
+00000000 init.c
 00000000 ulib.c
 00000000 printf.c
 000003f0 printint
-00000808 digits.1114
+00000808 digits.1039
 00000000 umalloc.c
 00000aac freep
 00000ab0 base
-00000000 init.c
 000000f0 strcpy
 00000490 printf
 00000aa4 argv
@@ -26,7 +26,7 @@
 0000037a mknod
 00000200 gets
 000003b2 getpid
-000006c0 malloc
+000006d0 malloc
 000003c2 sleep
 00000342 pipe
 00000352 write
@@ -45,7 +45,6 @@
 00000000 main
 00000120 strcmp
 000003aa dup
-000003d2 cpsys
 000003e2 chpr
 00000270 stat
 00000aac _edata
@@ -57,6 +56,7 @@
 00000170 strlen
 00000372 open
 000001c0 strchr
+000003d2 cps
 0000039a mkdir
 0000035a close
-00000630 free
+00000640 free

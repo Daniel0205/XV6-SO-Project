@@ -2,7 +2,7 @@ struct stat;
 struct rtcdate;
 
 // system calls
-int fork(void);
+int fork(int);
 int exit(void) __attribute__((noreturn));
 int wait(void);
 int pipe(int*);
@@ -23,10 +23,9 @@ int getpid(void);
 char* sbrk(int);
 int sleep(int);
 int uptime(void);
-int cpsys(void);
+int cps(void);
 void csc(void);
 int chpr(int pid, int priority);
-
 
 // ulib.c
 int stat(char*, struct stat*);

@@ -10,7 +10,11 @@
 int
 sys_fork(void)
 {
-  return fork();
+  int numtickets;
+  if(argint(0, &numtickets) < 0)
+    return -1;
+  else
+    return fork(numtickets);
 }
 
 int
@@ -39,7 +43,7 @@ sys_kill(void)
 int
 sys_getpid(void)
 {
-  return myproc()->pid;
+  return proc->pid;
 }
 
 int
@@ -50,7 +54,7 @@ sys_sbrk(void)
 
   if(argint(0, &n) < 0)
     return -1;
-  addr = myproc()->sz;
+  addr = proc->sz;
   if(growproc(n) < 0)
     return -1;
   return addr;
@@ -67,7 +71,7 @@ sys_sleep(void)
   acquire(&tickslock);
   ticks0 = ticks;
   while(ticks - ticks0 < n){
-    if(myproc()->killed){
+    if(proc->killed){
       release(&tickslock);
       return -1;
     }
@@ -91,18 +95,16 @@ sys_uptime(void)
 }
 
 int
-sys_cpsys(void)
+sys_cps(void)
 {
-  return cpsys ();
+	return cps();
 }
-
 
 void
 sys_csc(void)
 {
-  return csc ();
+	return csc();
 }
-
 
 int
 sys_chpr(void)

@@ -14,7 +14,7 @@
 00000000 ulib.c
 00000000 printf.c
 00000360 printint
-0000073c digits.1114
+0000073c digits.1039
 00000000 umalloc.c
 000009e0 freep
 000009e4 base
@@ -24,7 +24,7 @@
 000002ea mknod
 00000170 gets
 00000322 getpid
-00000630 malloc
+00000640 malloc
 00000332 sleep
 000002b2 pipe
 000002c2 write
@@ -43,7 +43,6 @@
 00000000 main
 00000090 strcmp
 0000031a dup
-00000342 cpsys
 00000352 chpr
 000001e0 stat
 000009e0 _edata
@@ -55,6 +54,7 @@
 000000e0 strlen
 000002e2 open
 00000130 strchr
+00000342 cps
 0000030a mkdir
 000002ca close
-000005a0 free
+000005b0 free

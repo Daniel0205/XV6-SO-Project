@@ -1,5 +1,3 @@
-#include "param.h"
-
 struct buf;
 struct context;
 struct file;
@@ -76,7 +74,7 @@ void            kbdintr(void);
 
 // lapic.c
 void            cmostime(struct rtcdate *r);
-int             lapicid(void);
+int             cpunum(void);
 extern volatile uint*    lapic;
 void            lapiceoi(void);
 void            lapicinit(void);
@@ -105,26 +103,22 @@ int             pipewrite(struct pipe*, char*, int);
 
 //PAGEBREAK: 16
 // proc.c
-int             cpuid(void);
 void            exit(void);
-int             fork(void);
+int             fork(int);
 int             growproc(int);
 int             kill(int);
-struct cpu*     mycpu(void);
-struct proc*    myproc();
 void            pinit(void);
 void            procdump(void);
 void            scheduler(void) __attribute__((noreturn));
 void            sched(void);
-void            setproc(struct proc*);
 void            sleep(void*, struct spinlock*);
 void            userinit(void);
 int             wait(void);
 void            wakeup(void*);
 void            yield(void);
-int 		    cpsys(void);
+int             cps(void);
 void            csc(void);
-int 		    chpr(int pid, int priority);
+int				chpr(int pid, int priority);
 
 // swtch.S
 void            swtch(struct context**, struct context*);
@@ -194,10 +188,9 @@ void            clearpteu(pde_t *pgdir, char *uva);
 // number of elements in fixed-size array
 #define NELEM(x) (sizeof(x)/sizeof((x)[0]))
 
+
 // Array to count the number of system calls
 int syscls[24];
 
 // Array for the names of system calls
 char* syscls_names[24];
-
-
